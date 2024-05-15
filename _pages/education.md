@@ -7,8 +7,6 @@ author_profile: true
 
 {% include base_path %}
 
-Education Background
-======
 * Institution: Peking University
 * Major: Information and Computing Science
 * GPA: 3.85/4.0
