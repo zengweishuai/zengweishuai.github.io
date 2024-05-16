@@ -7,7 +7,7 @@ redirect_from:
   - /about.html
 ---
 
-I am a second-year undergraduate student in the [School of EECS](eecs.pku.edu.cn), [Peking University](https://www.pku.edu.cn).
+I am a second-year undergraduate student in the [School of EECS](https://eecs.pku.edu.cn), [Peking University](https://www.pku.edu.cn).
 
 I am also a member of the Top-notch Class(Training Program for top students in basic disciplines 2.0), organized by the School of EECS, Peking Univeristy.
 
