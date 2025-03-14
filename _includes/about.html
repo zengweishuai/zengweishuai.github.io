@@ -1,6 +1,11 @@
  <div class="user-details">
-  <h1> My Expertise </h1>
-  <p> {{site.user_description}} </p>
+  <h1>About Me</h1>
+  <div class="images-left">
+    <img alt="selfie" src="{{"/assets/img/selfie.jpg" | prepend: site.baseurl}}" />
+  </div>
+  <div class="contents-right">
+    <p>{{site.user_description}}</p>
+  </div>
 </div>
   <div class="user">
     <div class="tech">
