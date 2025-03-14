@@ -15,14 +15,14 @@
 
 .header {
   z-index: 1;
-  text-align: center;
+  text-align: left;
   color:#FFF;
   position: absolute;
-  top: 50%;
-  left: 50%;
-  margin: 0 auto;
-  -webkit-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
+  top: 20px;
+  left: 20px;
+  margin: 0 ;
+//   -webkit-transform: translate(-50%, -50%);
+//   transform: translate(-50%, -50%);
   .site-title {
     font-size: 50px;
     display: block;
