@@ -4713,8 +4713,8 @@ sup, sub {
     }
   }
 
-/* .header-links {
-  margin: 10px;
+.header-links {
+  /* margin: 10px;
   position: relative;
   top: 80px;
 }
@@ -4728,7 +4728,7 @@ sup, sub {
   .header-links .link {
     font-size: 20px;
   }
-}
+} */
 
 .header-icons {
   display: flex;
@@ -4763,7 +4763,7 @@ sup, sub {
     height: 35px;
     font-size: 35px;
   }
-} */
+}
 
 .down {
   color: #FFF;
