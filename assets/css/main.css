@@ -4651,8 +4651,8 @@ sup, sub {
   text-align: left;
   color: #FFF;
   position: absolute;
-  top: 50%;
-  left: 40%;
+  top: 20px;
+  left: 20px;
   margin: 0;
 }
 .header .site-title {
@@ -4697,11 +4697,11 @@ sup, sub {
 
 .header-icons {
   display: flex;
-  justify-content: center;
-  text-align: center;
+  justify-content: left;
+  text-align: left;
 }
 .header-icons .icon {
-  text-align: center;
+  text-align: left;
   color: #FFF;
   width: 20px;
   height: 20px;
