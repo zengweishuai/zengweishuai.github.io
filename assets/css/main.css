@@ -4832,6 +4832,8 @@ sup, sub {
 .user-details {
   text-align: left;
   margin: 5px auto;
+  position: absolute;
+  left: 5%;
 }
 
 #projects {
