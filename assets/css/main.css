@@ -4705,7 +4705,7 @@ sup, sub {
     line-height: 1;
     color: #FFF;
     margin-top: 10px;
-    font-weight: bold;
+    font-weight: bolder;
     position: relative;
     top: 50px;
 }
