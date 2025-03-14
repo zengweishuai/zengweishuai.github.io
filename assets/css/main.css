@@ -4668,46 +4668,52 @@ sup, sub {
   }
 }
 .header .site-description {
-  font-size: 30px;
+  font-size: 25px;
   display: block;
   line-height: 1;
   color: #FFF;
   margin-top: 10px;
+  position: relative;
+  top: 30px;
 }
 @media only screen and (min-width: 550px) {
   .header .site-description {
-    font-size: 30px;
+    font-size: 25px;
   }
 }
 
 .header .static-text {
-    font-size: 30px;
+    font-size: 25px;
     display: inline-block;
     line-height: 1;
     color: #FFF;
     margin-top: 10px;
+    position: relative;
+    top: 30px;
 }
 @media only screen and (min-width: 550px) {
     .header .static-text {
-      font-size: 30px;
+      font-size: 25px;
     }
   }
 
 .header .dynamic-text {
-    font-size: 30px;
+    font-size: 25px;
     display: inline-block;
     line-height: 1;
     color: #FFF;
     margin-top: 10px;
     font-weight: bold;
+    position: relative;
+    top: 30px;
 }
 @media only screen and (min-width: 550px) {
     .header .dynamic-text {
-      font-size: 30px;
+      font-size: 25px;
     }
   }
 
-.header-links {
+/* .header-links {
   margin: 10px;
   position: relative;
   top: 80px;
@@ -4757,7 +4763,7 @@ sup, sub {
     height: 35px;
     font-size: 35px;
   }
-}
+} */
 
 .down {
   color: #FFF;
