@@ -4651,8 +4651,8 @@ sup, sub {
   text-align: left;
   color: #FFF;
   position: absolute;
-  top: 20px;
-  left: 20px;
+  top: 20%;
+  left: 5%;
   margin: 0;
 }
 .header .site-title {
@@ -4682,6 +4682,8 @@ sup, sub {
 
 .header-links {
   margin: 10px;
+  position: relative;
+  top: 80px;
 }
 .header-links .link {
   color: #FFF;
@@ -4699,6 +4701,8 @@ sup, sub {
   display: flex;
   justify-content: left;
   text-align: left;
+  position: relative;
+  top: 40px;
 }
 .header-icons .icon {
   text-align: left;

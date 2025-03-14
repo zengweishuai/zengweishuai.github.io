@@ -18,8 +18,8 @@
   text-align: left;
   color:#FFF;
   position: absolute;
-  top: 20px;
-  left: 20px;
+  top: 20%;
+  left: 5%;
   margin: 0 ;
 //   -webkit-transform: translate(-50%, -50%);
 //   transform: translate(-50%, -50%);
@@ -47,6 +47,8 @@
 
 .header-links {
   margin: 10px;
+  position: relative;
+  top: 80px;
   .link {
     color: #FFF;
     text-decoration: none;
@@ -60,10 +62,12 @@
 
 .header-icons {
   display: flex;
-  justify-content: center;
-  text-align: center;
+  justify-content: left;
+  text-align: left;
+  position: relative;
+  top: 40px;
   .icon {
-    text-align: center;
+    text-align: left;
     color: #FFF;
     width: 20px;
     height: 20px;
