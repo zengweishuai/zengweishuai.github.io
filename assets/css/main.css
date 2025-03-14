@@ -4676,7 +4676,7 @@ sup, sub {
 }
 @media only screen and (min-width: 550px) {
   .header .site-description {
-    font-size: 40px;
+    font-size: 20px;
   }
 }
 
@@ -4689,7 +4689,7 @@ sup, sub {
 }
 @media only screen and (min-width: 550px) {
     .header .static-text {
-      font-size: 40px;
+      font-size: 20px;
     }
   }
 
@@ -4702,7 +4702,7 @@ sup, sub {
 }
 @media only screen and (min-width: 550px) {
     .header .static-text {
-      font-size: 40px;
+      font-size: 20px;
     }
   }
 
