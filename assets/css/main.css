@@ -4680,6 +4680,19 @@ sup, sub {
   }
 }
 
+.header .static-text {
+    font-size: 20px;
+    display: inline-block;
+    line-height: 1;
+    color: #FFF;
+    margin-top: 10px;
+}
+@media only screen and (min-width: 550px) {
+    .header .static-text {
+      font-size: 40px;
+    }
+  }
+
 .header .cd-words-wrapper {
     display: inline-block;
     position: relative;
@@ -4689,6 +4702,7 @@ sup, sub {
   }
   
 .header .cd-words-wrapper .word {
+    color: #FFF;
     display: inline-block;
     position: absolute;
     left: 0;
