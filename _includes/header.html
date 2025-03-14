@@ -4,12 +4,7 @@
         <span class="site-title">{{site.username}}</span>
         <span class="site-description">{{site.user_title}}</span>
         <span class="static-text">I am interested in Humanoid Robot </span>
-        <div class="cd-words-wrapper">
-            <span class="word">Whole Body Control</span>
-            <span class="word">Scene/Object Interaction</span>
-            <span class="word">Cross Embodiement</span>
-            <span class="word">Zero-shot Transfer from Simulator to Real World</span>
-        </div>
+        <span class="dynamic-text"></span>
       </h1>
       <div class="header-icons">
         <a aria-label="Send email" href="#"><i class="icon fa fa-envelope"></i></a>
@@ -24,3 +19,36 @@
   </div>
   <a class="down" href="#about" data-scroll><i class="icon fa fa-chevron-down" aria-hidden="true"></i></a>
 </div>
+<script>
+    const text = document.querySelector('.dynamic-text');
+    const txt  =["Whole Body Control","Scene/Object Interaction","Cross Embodiement", "Zero-shot Transfer from Simulator to Real World"]; 
+    var index=0;
+    var xiaBiao= 0;
+    var huan = true;
+
+    setInterval(function(){
+        if(huan){             
+            text.innerHTML = txt[xiaBiao].slice(0,++index);
+        }
+        else{
+            text.innerHTML = txt[xiaBiao].slice(0,index--);
+        }
+        if(index==txt[xiaBiao].length+3)
+        {
+            huan = false;
+        }
+        else if(index<0)
+        {   
+            index = 0;
+            huan = true;
+            xiaBiao++;
+            if(xiaBiao>=txt.length)
+            {   
+                xiaBiao=0; 
+            }
+        }
+
+    },200)
+
+</script
+

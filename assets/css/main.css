@@ -4693,57 +4693,16 @@ sup, sub {
     }
   }
 
-.header .cd-words-wrapper {
+.header .dynamic-text {
+    font-size: 20px;
     display: inline-block;
-    position: relative;
-    text-align: left;
-    overflow: hidden; /* Hide overflowing text */
-    vertical-align: top; /* Align with surrounding text */
-  }
-  
-.header .cd-words-wrapper .word {
+    line-height: 1;
     color: #FFF;
-    display: inline-block;
-    position: absolute;
-    left: 0;
-    top: 0;
-    opacity: 0;
-    white-space: nowrap;
-    animation: rotateWords 12s infinite; /* Adjust timing as needed */
-  }
-  
-.header .cd-words-wrapper .word:nth-child(1) {
-    animation-delay: 0s;
-  }
-.header .cd-words-wrapper .word:nth-child(2) {
-    animation-delay: 3s;
-  }
-.header .cd-words-wrapper .word:nth-child(3) {
-    animation-delay: 6s;
-  }
-.header .cd-words-wrapper .word:nth-child(4) {
-    animation-delay: 9s;
-  }
-  
-@keyframes rotateWords {
-    0% {
-      opacity: 0;
-      transform: translateY(20px); /* Slide in from bottom */
-    }
-    5% {
-      opacity: 1;
-      transform: translateY(0);
-    }
-    20% {
-      opacity: 1;
-      transform: translateY(0);
-    }
-    25% {
-      opacity: 0;
-      transform: translateY(-20px); /* Slide out to top */
-    }
-    100% {
-      opacity: 0;
+    margin-top: 10px;
+}
+@media only screen and (min-width: 550px) {
+    .header .static-text {
+      font-size: 40px;
     }
   }
 
