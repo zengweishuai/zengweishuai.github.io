@@ -4660,6 +4660,8 @@ sup, sub {
   display: block;
   line-height: 1;
   color: #FFF;
+  position: relative;
+  top: 20px;
 }
 @media only screen and (min-width: 550px) {
   .header .site-title {
@@ -4674,7 +4676,7 @@ sup, sub {
   color: #FFF;
   margin-top: 10px;
   position: relative;
-  top: 30px;
+  top: 50px;
 }
 @media only screen and (min-width: 550px) {
   .header .site-description {
@@ -4689,7 +4691,7 @@ sup, sub {
     color: #FFF;
     margin-top: 10px;
     position: relative;
-    top: 30px;
+    top: 50px;
 }
 @media only screen and (min-width: 550px) {
     .header .static-text {
@@ -4705,7 +4707,7 @@ sup, sub {
     margin-top: 10px;
     font-weight: bold;
     position: relative;
-    top: 30px;
+    top: 50px;
 }
 @media only screen and (min-width: 550px) {
     .header .dynamic-text {
@@ -4735,7 +4737,7 @@ sup, sub {
   justify-content: left;
   text-align: left;
   position: relative;
-  top: 100px;
+  top: 120px;
 }
 .header-icons .icon {
   text-align: left;
