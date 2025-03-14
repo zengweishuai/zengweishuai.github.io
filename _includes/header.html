@@ -3,6 +3,8 @@
       <h1>
         <span class="site-title">{{site.username}}</span>
         <span class="site-description">{{site.user_title}}</span>
+        <span class="static-text">I am interested in </span>
+        <span class="dynamic-text"></span>
       </h1>
       <div class="header-icons">
         <a aria-label="Send email" href="#"><i class="icon fa fa-envelope"></i></a>
@@ -17,3 +19,4 @@
   </div>
   <a class="down" href="#about" data-scroll><i class="icon fa fa-chevron-down" aria-hidden="true"></i></a>
 </div>
+<script src="{{"/assets/js/printer.js" | prepend: site.baseurl }}"></script>
