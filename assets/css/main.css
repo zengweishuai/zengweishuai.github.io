@@ -4652,7 +4652,7 @@ sup, sub {
   color: #FFF;
   position: absolute;
   top: 10%;
-  left: 15%;
+  left: 16%;
   margin: 0;
 }
 .header .site-title {
@@ -4721,12 +4721,12 @@ sup, sub {
   text-align: right;
   color: #FFF;
   text-decoration: none;
-  font-size: 12px;
+  font-size: 15px;
   margin: 10px;
 }
 @media only screen and (min-width: 550px) {
   .header-links .link {
-    font-size: 12px;
+    font-size: 15px;
   }
 }
 
