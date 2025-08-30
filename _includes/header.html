@@ -2,52 +2,100 @@
   <div class="header">
       <div class="header-links">
         <a class="link" href="#about" data-scroll>About Me</a>
+        <a class="link" href="#publication" data-scroll>Publication</a>
         <a class="link" href="#projects" data-scroll>Projects</a>
       </div>
       <h1>
         <span class="site-title">{{site.username}}</span>
         <span class="site-description">{{site.user_title}}</span>
-        <span class="static-text">Interested in Humanoid Robot </span>
-        <span class="dynamic-text"></span>
+        <span class="static-text">Interested in Humanoid Robot <span class="dynamic-text"></span></span>
       </h1>
       <div class="header-icons">
         <a aria-label="My Github"  href=https://github.com/zengweishuai><i class="icon fa fa-github-alt" aria-hidden="true"></i></a>
         <a aria-label="My Twitter"  href="https://x.com/weishuaizeng"><i class="icon fa fa-twitter" aria-hidden="true"></i></a>
         <a aria-label="Send email" href="mailto:weishuai107@gmail.com"><i class="icon fa fa-envelope"></i></a>
+        <a aria-label="My RedNote" href="https://www.xiaohongshu.com/user/profile/653394ee000000002a01a43f"><i class="icon fa fa-heart" aria-hidden="true"></i></a>
+        <a aria-label="WeChat QR Code" href="#" class="wechat-link"><i class="icon fa fa-wechat" aria-hidden="true"></i></a>
+      </div>
+      
+      <!-- WeChat QR Code Modal -->
+      <div id="wechat-modal" class="wechat-modal">
+        <div class="wechat-modal-content">
+          <span class="wechat-close">&times;</span>
+          <h3>Scan WeChat QR Code</h3>
+          <img src="assets/img/wechat-qr.jpg" alt="WeChat QR Code" class="wechat-qr">
+        </div>
       </div>
   </div>
   <a class="down" href="#about" data-scroll><i class="icon fa fa-chevron-down" aria-hidden="true"></i></a>
 </div>
 <script>
     const text = document.querySelector('.dynamic-text');
-    const txt  =["Whole Body Control","Scene/Object Interaction","Cross Embodiement", "Zero-shot Sim2Real"]; 
+    const txt  =["Planning and Control", "Perception and Recognition", "Spatial Reasoning and Understanding", "Scene and Object Interaction", "Cross Embodiment"]; 
     var index=0;
     var xiaBiao= 0;
     var huan = true;
 
-    setInterval(function(){
-        if(huan){             
-            text.innerHTML = txt[xiaBiao].slice(0,++index);
-        }
-        else{
-            text.innerHTML = txt[xiaBiao].slice(0,index--);
-        }
-        if(index==txt[xiaBiao].length+3)
-        {
-            huan = false;
-        }
-        else if(index<0)
-        {   
-            index = 0;
-            huan = true;
-            xiaBiao++;
-            if(xiaBiao>=txt.length)
-            {   
-                xiaBiao=0; 
+    // Delay the interest animation until after loading animations complete
+    setTimeout(function() {
+        setInterval(function(){
+            if(huan){             
+                text.innerHTML = txt[xiaBiao].slice(0,++index);
             }
+            else{
+                text.innerHTML = txt[xiaBiao].slice(0,index--);
+            }
+            if(index==txt[xiaBiao].length+3)
+            {
+                huan = false;
+            }
+            else if(index<0)
+            {   
+                index = 0;
+                huan = true;
+                xiaBiao++;
+                if(xiaBiao>=txt.length)
+                {   
+                    xiaBiao=0; 
+                }
+            }
+
+        },50)
+    }, 2500) // Start 2.5s after page load (after all animations complete)
+
+    // WeChat Modal Functionality
+    const wechatLink = document.querySelector('.wechat-link');
+    const wechatModal = document.getElementById('wechat-modal');
+    const wechatClose = document.querySelector('.wechat-close');
+
+    // Open modal when WeChat icon is clicked
+    wechatLink.addEventListener('click', function(e) {
+        e.preventDefault();
+        wechatModal.style.display = 'block';
+        document.body.style.overflow = 'hidden'; // Prevent background scrolling
+    });
+
+    // Close modal when close button is clicked
+    wechatClose.addEventListener('click', function() {
+        wechatModal.style.display = 'none';
+        document.body.style.overflow = 'auto'; // Restore scrolling
+    });
+
+    // Close modal when clicking outside of it
+    window.addEventListener('click', function(e) {
+        if (e.target === wechatModal) {
+            wechatModal.style.display = 'none';
+            document.body.style.overflow = 'auto';
         }
+    });
 
-    },50)
+    // Close modal with Escape key
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && wechatModal.style.display === 'block') {
+            wechatModal.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+    });
 
-</script
+</script>
 

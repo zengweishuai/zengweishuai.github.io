@@ -11,6 +11,7 @@ html {
   line-height: 1.15; /* 1 */
   -ms-text-size-adjust: 100%; /* 2 */
   -webkit-text-size-adjust: 100%; /* 2 */
+  scroll-behavior: smooth;
 }
 
 /* Sections
@@ -4566,6 +4567,71 @@ body {
   line-height: 1.5;
   color: #555;
   font-family: "Montserrat", sans-serif;
+  text-align: center;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Main content container for better alignment */
+.main-content {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+}
+
+/* Ensure all sections are properly contained */
+section {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Add subtle transitions between sections */
+section:not(#particles-js) {
+  transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* Content wrapper to position content below particles */
+.content-wrapper {
+  position: relative;
+  z-index: 2;
+  margin-top: 100vh;
+  background: #fff;
+  box-shadow: 0 -10px 30px rgba(0,0,0,0.1);
+  transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* Add a subtle gradient overlay at the bottom of particles for smooth transition */
+#particles-js::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100px;
+  background: linear-gradient(to bottom, transparent, rgba(255,255,255,0.1));
+  pointer-events: none;
+  z-index: 5;
+}
+
+/* Alternating section backgrounds for visual flow */
+#about {
+  background: #fff;
+  padding: 80px 0;
+}
+
+#publication {
+  background: #f8f9fa;
+  padding: 80px 0;
+}
+
+#projects {
+  background: #fff;
+  padding: 80px 0;
+}
+
+footer {
+  background: #1a222c;
 }
 
 article, aside, figcaption, figure, footer, header, nav, section {
@@ -4631,93 +4697,232 @@ sup, sub {
     top: 0;
   }
 }
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes scrollIndicator {
+  0% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  50% {
+    transform: translateY(10px);
+    opacity: 0.7;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
 #particles-js {
   background: #1a222c;
   display: flex;
-  vertical-align: bottom;
   width: 100%;
-  min-height: 100vh;
+  height: 100vh;
   background-repeat: no-repeat;
   background-size: cover;
-  background-attachment: fixed;
+  background-attachment: scroll;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
 }
 #particles-js .particles-js-canvas-el {
   width: 100% !important;
   height: 100vh !important;
+  position: absolute;
+  top: 0;
+  left: 0;
 }
 
 .header {
-  z-index: 1;
-  text-align: left;
+  z-index: 10;
+  text-align: center;
   color: #FFF;
   position: absolute;
-  top: 10%;
-  left: 16%;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   margin: 0;
+  width: 90%;
+  max-width: 1400px;
+  padding: 40px;
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 .header .site-title {
-  font-size: 80px;
+  font-size: 48px;
   display: block;
-  line-height: 1;
+  line-height: 1.2;
   color: #FFF;
   position: relative;
   top: 20px;
+  text-align: center;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+  animation: fadeInDown 1s ease-out 0.5s both;
+  margin-bottom: 35px;
 }
 @media only screen and (min-width: 550px) {
   .header .site-title {
-    margin: 0;
-    font-size: 80px;
-  }
-}
-.header .site-description {
-  font-size: 25px;
-  display: block;
-  line-height: 1;
-  color: #FFF;
-  margin-top: 10px;
-  position: relative;
-  top: 50px;
-}
-@media only screen and (min-width: 550px) {
-  .header .site-description {
-    font-size: 25px;
+    margin: 0 0 35px 0;
+    font-size: 48px;
   }
 }
 
+/* Responsive header adjustments */
+@media only screen and (max-width: 768px) {
+  .header {
+    width: 95%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    top: 40%;
+    padding: 30px;
+  }
+  
+  .header .site-title {
+    font-size: 42px;
+    margin-bottom: 20px;
+  }
+  
+  .header .site-description {
+    font-size: 18px;
+    margin-bottom: 20px;
+  }
+  
+  .header .static-text {
+    font-size: 16px;
+    margin-bottom: 30px;
+  }
+  
+  .header .dynamic-text {
+    font-size: 16px;
+    margin-bottom: 0;
+    margin-left: 2px;
+  }
+  
+  .header-icons {
+    gap: 25px;
+    top: 15px;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .header {
+    top: 40%;
+    width: 98%;
+    transform: translate(-50%, -50%);
+    padding: 25px;
+  }
+  
+  .header .site-title {
+    font-size: 32px;
+    margin-bottom: 18px;
+  }
+  
+  .header .site-description {
+    font-size: 16px;
+    margin-bottom: 18px;
+  }
+  
+  .header .static-text {
+    font-size: 14px;
+    margin-bottom: 25px;
+  }
+  
+  .header .dynamic-text {
+    font-size: 14px;
+    margin-bottom: 0;
+    margin-left: 1px;
+  }
+  
+  .header-icons {
+    gap: 20px;
+    top: 10px;
+  }
+}
+.header .site-description {
+  font-size: 20px;
+  display: block;
+  line-height: 1.2;
+  color: #FFF;
+  margin-top: 0;
+  position: relative;
+  top: 30px;
+  text-align: center;
+  margin-bottom: 35px;
+  animation: fadeInDown 1s ease-out 1s both;
+}
+@media only screen and (min-width: 550px) {
+    .header .site-description {
+      font-size: 20px;
+      margin-bottom: 35px;
+    }
+  }
+
 .header .static-text {
-    font-size: 25px;
-    display: inline-block;
-    line-height: 1;
+    font-size: 18px;
+    display: block;
+    line-height: 1.2;
     color: #FFF;
-    margin-top: 10px;
+    margin-top: 0;
     position: relative;
-    top: 50px;
+    top: 30px;
+    text-align: center;
+    margin-bottom: 35px;
+    animation: fadeInDown 1s ease-out 1.5s both;
 }
 @media only screen and (min-width: 550px) {
     .header .static-text {
       font-size: 25px;
+      margin-bottom: 40px;
     }
   }
 
 .header .dynamic-text {
-    font-size: 25px;
-    display: inline-block;
-    line-height: 1;
+    font-size: 18px;
+    display: inline;
+    line-height: 1.2;
     color: #FFF;
-    margin-top: 10px;
+    margin-left: 3px;
     font-weight: bolder;
     position: relative;
-    top: 50px;
+    top: 0;
+    text-align: left;
+    margin-bottom: 0;
 }
 @media only screen and (min-width: 550px) {
     .header .dynamic-text {
       font-size: 25px;
+      margin-bottom: 0;
+      margin-left: 4px;
     }
   }
 
 .header-links {
   margin: 5px;
   text-align: right;
+  position: absolute;
+  top: -100px;
+  right: 0;
 }
 .header-links .link {
   text-align: right;
@@ -4734,22 +4939,125 @@ sup, sub {
 
 .header-icons {
   display: flex;
-  justify-content: left;
-  text-align: left;
+  justify-content: center;
+  text-align: center;
   position: relative;
-  top: 120px;
+  top: 20px;
+  gap: 30px;
+  animation: fadeInUp 1s ease-out 2s both;
+}
+
+.header-icons a {
+  text-decoration: none;
+  color: inherit;
+  /* border-bottom: none; */
+}
+
+/* WeChat Modal Styles */
+.wechat-modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: transparent;
+}
+
+.wechat-modal-content {
+  background-color: #fff;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 30px;
+  border-radius: 15px;
+  width: 90%;
+  max-width: 400px;
+  text-align: center;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.wechat-close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  position: absolute;
+  right: 20px;
+  top: 15px;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.wechat-close:hover,
+.wechat-close:focus {
+  color: #000;
+}
+
+.wechat-modal h3 {
+  margin: 0 0 20px 0;
+  color: #333;
+  font-size: 24px;
+}
+
+.wechat-qr {
+  width: 100%;
+  max-width: 300px;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Responsive Modal */
+@media only screen and (max-width: 768px) {
+  .wechat-modal-content {
+    padding: 25px;
+    width: 95%;
+    max-width: 350px;
+  }
+  
+  .wechat-modal h3 {
+    font-size: 20px;
+  }
+  
+  .wechat-qr {
+    max-width: 250px;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .wechat-modal-content {
+    padding: 20px;
+    width: 98%;
+    max-width: 300px;
+  }
+  
+  .wechat-modal h3 {
+    font-size: 18px;
+  }
+  
+  .wechat-qr {
+    max-width: 200px;
+  }
 }
 .header-icons .icon {
-  text-align: left;
+  text-align: center;
   color: #FFF;
   width: 20px;
   height: 20px;
   font-size: 20px;
-  padding: 10px;
-  margin: 5px;
+  padding: 12px;
+  margin: 0;
   border-radius: 50%;
   border: 2px solid #FFF;
   transition: all 0.7s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  /* border-bottom: none; */
 }
 .header-icons .icon:hover {
   color: #1a222c;
@@ -4764,30 +5072,36 @@ sup, sub {
     width: 25px;
     height: 25px;
     font-size: 25px;
+    padding: 15px;
+    /* border: none; */
   }
 }
 
 .down {
   color: #FFF;
   position: absolute;
-  bottom: 25px;
-  width: 100%;
-  margin: 0 auto;
+  bottom: 60px;
+  left: 50%;
+  transform: translateX(-50%);
   display: block;
   text-align: center;
-  font-size: 30px;
+  font-size: 40px;
   cursor: pointer;
+  z-index: 15;
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.down:hover {
+  /* transform: translateY(-8px); */
+  color: #4B5664;
 }
 .down .icon {
-  position: absolute;
+  position: relative;
   transform-style: preserve-3d;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
   width: 100px;
   height: 100px;
   fill: #fff;
-  animation: pulse 1.3s infinite;
+  animation: scrollIndicator 2s ease-in-out infinite;
 }
 .down .icon:hover {
   color: #4B5664;
@@ -4799,7 +5113,10 @@ sup, sub {
 #about {
   width: 90%;
   margin: 0 auto;
-  max-width: 960px;
+  max-width: 1200px;
+  padding: 60px 0;
+  position: relative;
+  z-index: 2;
 }
 @media only screen and (min-width: 550px) {
   #about {
@@ -4831,17 +5148,86 @@ sup, sub {
 
 .user-details {
   text-align: left;
-  margin: 5px auto;
+  margin: 20px auto;
+  max-width: 1200px;
+  padding: 0 20px;
+  overflow: hidden;
+  display: block;
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeInUp 0.8s ease-out 0.3s forwards;
+}
+
+.user-details::after {
+  content: "";
+  display: table;
+  clear: both;
 }
 
 .user-details .selfie{
     float: left;
+    width: 300px;
     height: 400px;
+    margin-right: 30px;
+    overflow: hidden;
+}
+
+.user-details .selfie img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
 }
 
 .user-details .selfie-right{
-    float: right;
+    overflow: hidden;
     font-size: 20px;
+    line-height: 1.6;
+}
+
+/* Responsive design for mobile devices */
+@media only screen and (max-width: 768px) {
+    .user-details {
+        text-align: center;
+    }
+    
+    .user-details .selfie {
+        float: none;
+        width: 100%;
+        max-width: 400px;
+        height: 300px;
+        margin: 0 auto 20px auto;
+    }
+    
+    .user-details .selfie-right {
+        font-size: 18px;
+        text-align: center;
+        clear: both;
+    }
+}
+
+/* Publication section styling */
+.publication-content {
+    margin: 20px 0;
+    padding: 20px;
+    background-color: #f8f9fa;
+    border-radius: 10px;
+}
+
+/* Ensure consistent section alignment */
+#publication {
+    width: 90%;
+    margin: 0 auto;
+    max-width: 1200px;
+    padding: 40px 0;
+    position: relative;
+    z-index: 2;
+}
+
+.publication-content p {
+    margin: 0;
+    color: #666;
+    font-size: 16px;
 }
 
 #projects {
@@ -4849,8 +5235,11 @@ sup, sub {
   flex-direction: column;
   justify-content: space-between;
   width: 90%;
-  max-width: 960px;
+  max-width: 1200px;
   margin: 0 auto;
+  padding: 40px 0;
+  position: relative;
+  z-index: 2;
 }
 @media only screen and (min-width: 550px) {
   #projects {
@@ -4860,6 +5249,13 @@ sup, sub {
 
 .user-projects {
   margin: 20px auto;
+  overflow: hidden;
+}
+
+.user-projects::after {
+  content: "";
+  display: table;
+  clear: both;
 }
 .user-projects img {
   max-width: 100%;
@@ -4887,7 +5283,6 @@ sup, sub {
 @media only screen and (min-width: 550px) {
   .contents-right {
     float: right;
-    margin-top: -5%;
     width: 48%;
   }
 }
@@ -4898,11 +5293,6 @@ sup, sub {
     width: 48%;
   }
 }
-@media only screen and (min-width: 550px) {
-  .images-right img {
-    float: right;
-  }
-}
 
 @media only screen and (min-width: 550px) {
   .images-left {
@@ -4910,9 +5300,27 @@ sup, sub {
     width: 48%;
   }
 }
-@media only screen and (min-width: 550px) {
-  .images-left img {
-    float: left;
+
+/* Responsive design for projects on mobile */
+@media only screen and (max-width: 768px) {
+  .user-projects {
+    text-align: center;
+  }
+  
+  .images-right,
+  .images-left {
+    float: none;
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto 20px auto;
+  }
+  
+  .contents,
+  .contents-right {
+    float: none;
+    width: 100%;
+    text-align: center;
+    clear: both;
   }
 }
 
@@ -4963,4 +5371,18 @@ sup, sub {
 }
 .footer a:active {
   color: #4B5664;
-}/*# sourceMappingURL=main.css.map */
+}
+
+.header .site-title {
+  margin-bottom: 35px; /* Increased from 25px */
+}
+
+.header .site-description {
+  margin-top: 20px; /* Increased from 15px */
+  margin-bottom: 35px; /* Increased from 25px */
+}
+
+.header .static-text {
+  margin-top: 15px; /* Increased from 10px */
+  margin-bottom: 50px; /* Increased from 40px */
+}
