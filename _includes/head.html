@@ -6,7 +6,7 @@
   <title>{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}</title>
   <meta name="description" content="{% if page.description %}{{ page.description | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ site.description }}{% endif %}">
 
-  <!-- Preload critical fonts -->
+  <!-- Preload critical fonts with display swap for better performance -->
   <link rel="preload" href="{{ '/assets/fonts/fontawesome-webfont.woff2' | prepend: site.baseurl }}" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="{{ '/assets/fonts/devicon.woff' | prepend: site.baseurl }}" as="font" type="font/woff" crossorigin>
   
@@ -16,6 +16,29 @@
   <!-- Main stylesheet -->
   <link rel="stylesheet" href="{{ '/assets/css/main.css' | prepend: site.baseurl }}">
   
-  <!-- Preload critical images -->
+  <!-- Preload critical images for faster loading -->
   <link rel="preload" href="{{ '/assets/img/selfie.jpg' | prepend: site.baseurl }}" as="image">
+  
+  <!-- Performance optimization meta tags -->
+  <meta http-equiv="x-dns-prefetch-control" content="on">
+  <link rel="dns-prefetch" href="//fonts.googleapis.com">
+  
+  <!-- Critical CSS for above-the-fold content -->
+  <style>
+    /* Critical CSS for immediate icon display */
+    .fa, .icon {
+      display: inline-block !important;
+      font-style: normal !important;
+      font-variant: normal !important;
+      text-rendering: auto !important;
+      -webkit-font-smoothing: antialiased !important;
+      -moz-osx-font-smoothing: grayscale !important;
+    }
+    
+    /* Ensure icons are visible immediately */
+    .header-icons .icon {
+      opacity: 1 !important;
+      visibility: visible !important;
+    }
+  </style>
 </head>

@@ -13,11 +13,21 @@
 } */
 
 /* Optimize image loading */
-/* img {
+img {
   max-width: 100%;
   height: auto;
   display: block;
-} */
+}
+
+/* Optimize icon loading */
+.fa, .icon {
+  display: inline-block;
+  font-style: normal;
+  font-variant: normal;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
 
 /* Document
    ========================================================================== */
@@ -5242,6 +5252,9 @@ sup, sub {
     object-fit: cover;
     border-radius: 10px;
     display: block;
+    will-change: transform;
+    backface-visibility: hidden;
+    transform: translateZ(0);
 }
 
 .user-details .selfie-right{
@@ -5273,7 +5286,7 @@ sup, sub {
     width: 280px;
     height: 380px;
     margin-right: 40px;
-    margin-top: 40px;
+    margin-top: 25px;
     overflow: hidden;
     display: flex;
     align-items: center;
@@ -5309,6 +5322,19 @@ sup, sub {
     .user-details .selfie-right p {
         font-size: 15px;
         line-height: 1.6;
+    }
+    
+    /* Mobile performance optimizations */
+    .header-icons .icon {
+        font-size: 1.2rem;
+        margin: 0 8px;
+    }
+    
+    /* Ensure smooth icon rendering on mobile */
+    .fa, .icon {
+        -webkit-transform: translateZ(0);
+        transform: translateZ(0);
+        backface-visibility: hidden;
     }
 }
 
@@ -5441,6 +5467,7 @@ sup, sub {
     border-radius: 6px;
     display: inline-block;
     width: fit-content;
+    text-align: center;
 }
 
 /* Different colors for different paper statuses */
@@ -5546,6 +5573,11 @@ sup, sub {
     .publication-links {
         justify-content: center;
     }
+    
+    .paper-status {
+        margin: 0 auto 20px auto;
+        text-align: center;
+    }
 }
 
 @media only screen and (max-width: 480px) {
@@ -5573,11 +5605,31 @@ sup, sub {
     
     .publication-links {
         gap: 8px;
+        justify-content: center;
     }
     
     .pub-link {
         padding: 6px 12px;
         font-size: 0.8rem;
+    }
+    
+    /* Additional mobile optimizations for better performance */
+    .paper-status {
+        margin: 0 auto 15px auto;
+        text-align: center;
+        font-size: 0.8rem;
+        padding: 4px 10px;
+    }
+    
+    .publication-image {
+        height: 180px;
+    }
+    
+    /* Ensure smooth scrolling and performance on mobile */
+    .publication-item {
+        -webkit-transform: translateZ(0);
+        transform: translateZ(0);
+        backface-visibility: hidden;
     }
 }
 
