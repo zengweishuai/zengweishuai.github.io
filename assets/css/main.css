@@ -1,23 +1,23 @@
 /*! normalize.css v7.0.0 | MIT License | github.com/necolas/normalize.css */
 
 /* Performance optimizations */
-* {
+/* * {
   box-sizing: border-box;
-}
+} */
 
 /* Optimize font rendering */
-body {
+/* body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
-}
+} */
 
 /* Optimize image loading */
-img {
+/* img {
   max-width: 100%;
   height: auto;
   display: block;
-}
+} */
 
 /* Document
    ========================================================================== */
