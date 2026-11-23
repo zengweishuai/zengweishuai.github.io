@@ -36,7 +36,7 @@
     }
     wrap.style.width = widthOf(words[0]) + "px";
 
-    setInterval(function () {
+    function swap() {
       var cur = words[i];
       var next = words[(i + 1) % words.length];
       wrap.style.width = "6px"; // wipe away
@@ -46,7 +46,12 @@
         wrap.style.width = widthOf(next) + "px"; // wipe in
         i = (i + 1) % words.length;
       }, 700);
-    }, 3200);
+    }
+    // first swap soon after the opening settles, then a steady rhythm
+    setTimeout(function () {
+      swap();
+      setInterval(swap, 3200);
+    }, 400);
 
     window.addEventListener("resize", function () {
       wrap.style.width = widthOf(words[i]) + "px";
