@@ -1,0 +1,27 @@
+<!--
+  Blog section. Hidden until `show_blog: true` is set in _config.yml.
+  Add posts as _posts/YYYY-MM-DD-title.md with front matter:
+    ---
+    layout: post
+    title: My first post
+    summary: One-line teaser shown on the card.
+    ---
+-->
+<div class="container">
+  <p class="section__kicker">Blog</p>
+  <h2 class="section__title">Notes &amp; Writing</h2>
+  {% if site.posts.size > 0 %}
+  <div class="posts">
+    {% for post in site.posts limit: 6 %}
+    <a class="post-card" href="{{ post.url | prepend: site.baseurl }}" data-inview>
+      <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%b %-d, %Y" }}</time>
+      <h3>{{ post.title }}</h3>
+      {% if post.summary %}<p>{{ post.summary }}</p>{% endif %}
+      <span class="post-card__more">Read more →</span>
+    </a>
+    {% endfor %}
+  </div>
+  {% else %}
+  <p class="posts__empty">Posts are on their way.</p>
+  {% endif %}
+</div>

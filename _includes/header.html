@@ -1,58 +1,45 @@
-<div id="particles-js">
-  <div class="header">
-      <div class="header-links">
-        <a class="link" href="#about" data-scroll>About Me</a>
-        <a class="link" href="#publication" data-scroll>Publication</a>
-      </div>
-      <h1>
-        <span class="site-title">{{site.username}}</span>
-        <span class="site-description">{{site.user_title}}</span>
-        <span class="static-text">Interested in Humanoid Robot <span class="dynamic-text"></span></span>
-      </h1>
-      <div class="header-icons">
-        <a aria-label="My Github"  href=https://github.com/zengweishuai><i class="icon fa fa-github-alt" aria-hidden="true"></i></a>
-        <a aria-label="My Twitter"  href="https://x.com/weishuaizeng"><i class="icon fa fa-twitter" aria-hidden="true"></i></a>
-        <a aria-label="Send email" href="mailto:weishuai107@gmail.com"><i class="icon fa fa-envelope"></i></a>
-        <a aria-label="My RedNote" href="https://www.xiaohongshu.com/user/profile/653394ee000000002a01a43f"><i class="icon fa fa-heart" aria-hidden="true"></i></a>
-      </div>
+<nav class="nav" id="nav" aria-label="Main">
+  <div class="nav__inner">
+    <div class="nav__links">
+      <a class="nav__link" href="#home" data-scroll>Home</a>
+      <a class="nav__link" href="#about" data-scroll>About</a>
+      {% if site.show_blog %}<a class="nav__link" href="#blog" data-scroll>Blog</a>{% endif %}
+    </div>
   </div>
-  <a class="down" href="#about" data-scroll><i class="icon fa fa-chevron-down" aria-hidden="true"></i></a>
-</div>
-<script>
-    const text = document.querySelector('.dynamic-text');
-    const txt  =["Planning and Control.", "Perception and Recognition.", "Spatial Reasoning and Understanding.", "Scene and Object Interaction.", "Cross Embodiment."]; 
-    var index=0;
-    var xiaBiao= 0;
-    var huan = true;
+</nav>
 
-    // Delay the interest animation until after loading animations complete
-    setTimeout(function() {
-        setInterval(function(){
-            if(huan){             
-                text.innerHTML = txt[xiaBiao].slice(0,++index);
-            }
-            else{
-                text.innerHTML = txt[xiaBiao].slice(0,index--);
-            }
-            if(index==txt[xiaBiao].length+3)
-            {
-                huan = false;
-            }
-            else if(index<0)
-            {   
-                index = 0;
-                huan = true;
-                xiaBiao++;
-                if(xiaBiao>=txt.length)
-                {   
-                    xiaBiao=0; 
-                }
-            }
+<header id="home" class="hero">
+  <div class="hero__bg" aria-hidden="true">
+    <div class="hero__zoom" style="--lqip: url(data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAA0JCgsKCA0LCgsODg0PEyAVExISEyccHhcgLikxMC4pLSwzOko+MzZGNywtQFdBRkxOUlNSMj5aYVpQYEpRUk//2wBDAQ0ODhMREyYVFSZPNS01T09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT0//wAARCAAdACgDASIAAhEBAxEB/8QAGgABAAMAAwAAAAAAAAAAAAAABAAFBgECA//EACoQAAIBAwIEBgIDAAAAAAAAAAIBAxEABCESQQVREzEygRQicRVhBrHR/8QAGAEBAQADAAAAAAAAAAAAAAAABAMAAQL/xAAcEQADAAMBAQEAAAAAAAAAAAABAAIRIRIxAxP/2gAMAwEAAhEDEQA/AN5KjULUVNzWlbJkGUOmhE/D93lVz3m3bq8uNfcQ27H5jPPEpMiUCPXVLbpw0Vkq+Z00kdHb453NS2qRQqOUXXa3001/XjaOT5X5OOVSQoZAaaoqJi/Bq67PiCTLRKBkZbilkR+AUS42Ie7y7MimhlZSRjVEvIQ9KerviPpQO21zBnADrfZKnluXnV/MZTaEAbb6Cl/ty1/qk5a4ZI8ldrcWOadJIjjdR9eNpObJI1FjEBQ7GLMDa1qkqcb4cZFB3TkdAESER01PXV61pSz/AI+CPGydyZsA81aPX+rFhT4sKLIlUkIMS3fHc5NBXHWx4uNvHabJGB7CUipQa19et0vtHiZcM0ExiJl5frq+PqrsgyzjL251kQmNCJ6/J8fq8M7wC67x6HucIxt9iQURF8iDypU8LlqbUY7WtyfW5dhWBhidnJf/2Q==)">
+      <img id="hero-img"
+           src="{{ '/assets/img/babel-1920.jpg' | prepend: site.baseurl }}"
+           srcset="{{ '/assets/img/babel-1280.jpg' | prepend: site.baseurl }} 1280w, {{ '/assets/img/babel-1920.jpg' | prepend: site.baseurl }} 1920w, {{ '/assets/img/babel-2560.jpg' | prepend: site.baseurl }} 2560w"
+           sizes="100vw" alt="" decoding="async" fetchpriority="high"
+           onload="this.classList.add('is-loaded')">
+    </div>
+  </div>
+  <div class="hero__shade" aria-hidden="true"></div>
+  <div class="hero__veil" aria-hidden="true"></div>
 
-        },50)
-    }, 2500) // Start 2.5s after page load (after all animations complete)
+  <div class="hero__inner">
+    <h1 class="hero__title" aria-label="{{ site.username }}">
+      {%- assign words = site.username | split: ' ' -%}
+      {%- for w in words -%}
+        <span class="word" aria-hidden="true"><span class="word__in" style="--i: {{ forloop.index0 }}">{{ w }}</span></span>{% unless forloop.last %}{{ " " }}{% endunless %}
+      {%- endfor -%}
+    </h1>
+    <p class="hero__sub reveal" style="--d: 0.55s">
+      <span class="hero__role">{{ site.user_title }}</span>
+      <span class="rotator" aria-live="off">
+        {%- for t in site.interests -%}
+          <b{% if forloop.first %} class="is-visible"{% endif %}>{{ t }}</b>
+        {%- endfor -%}
+      </span>
+    </p>
+  </div>
 
-
-
-</script>
-
+  <a class="hero__down reveal" style="--d: 0.9s" href="#about" data-scroll aria-label="Scroll to About">
+    <i class="fa fa-chevron-down" aria-hidden="true"></i>
+  </a>
+  <p class="hero__credit reveal" style="--d: 1s">Pieter Bruegel the Elder · <i>The Tower of Babel</i> · 1563</p>
+</header>

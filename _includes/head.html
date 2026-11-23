@@ -2,43 +2,27 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script>
+    document.documentElement.className += " js";
+    /* safety net: never leave the opening stuck if the image or script is slow */
+    setTimeout(function () { var b = document.body; if (b) { b.classList.remove("is-loading"); b.classList.add("is-ready"); } }, 2000);
+  </script>
 
   <title>{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}</title>
   <meta name="description" content="{% if page.description %}{{ page.description | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ site.description }}{% endif %}">
 
-  <!-- Preload critical fonts with display swap for better performance -->
+  <!-- Fonts: Raleway is self-hosted so nothing blocks the first paint -->
+  <link rel="preload" href="{{ '/assets/fonts/raleway-latin.woff2' | prepend: site.baseurl }}" as="font" type="font/woff2" crossorigin>
+
+  <!-- Icons -->
   <link rel="preload" href="{{ '/assets/fonts/fontawesome-webfont.woff2' | prepend: site.baseurl }}" as="font" type="font/woff2" crossorigin>
-  <link rel="preload" href="{{ '/assets/fonts/devicon.woff' | prepend: site.baseurl }}" as="font" type="font/woff" crossorigin>
-  
-  <!-- Load FontAwesome locally for better performance -->
   <link rel="stylesheet" href="{{ '/assets/css/font-awesome.min.css' | prepend: site.baseurl }}">
-  
-  <!-- Main stylesheet -->
-  <link rel="stylesheet" href="{{ '/assets/css/main.css' | prepend: site.baseurl }}">
-  
-  <!-- Preload critical images for faster loading -->
-  <link rel="preload" href="{{ '/assets/img/selfie.jpg' | prepend: site.baseurl }}" as="image">
-  
-  <!-- Performance optimization meta tags -->
-  <meta http-equiv="x-dns-prefetch-control" content="on">
-  <link rel="dns-prefetch" href="//fonts.googleapis.com">
-  
-  <!-- Critical CSS for above-the-fold content -->
-  <style>
-    /* Critical CSS for immediate icon display */
-    .fa, .icon {
-      display: inline-block !important;
-      font-style: normal !important;
-      font-variant: normal !important;
-      text-rendering: auto !important;
-      -webkit-font-smoothing: antialiased !important;
-      -moz-osx-font-smoothing: grayscale !important;
-    }
-    
-    /* Ensure icons are visible immediately */
-    .header-icons .icon {
-      opacity: 1 !important;
-      visibility: visible !important;
-    }
-  </style>
+
+  <!-- Hero painting: preload; a tiny inline placeholder shows until it arrives -->
+  <link rel="preload" as="image"
+        href="{{ '/assets/img/babel-1920.jpg' | prepend: site.baseurl }}"
+        imagesrcset="{{ '/assets/img/babel-1280.jpg' | prepend: site.baseurl }} 1280w, {{ '/assets/img/babel-1920.jpg' | prepend: site.baseurl }} 1920w, {{ '/assets/img/babel-2560.jpg' | prepend: site.baseurl }} 2560w"
+        imagesizes="100vw">
+
+  <link rel="stylesheet" href="{{ '/assets/css/home.css' | prepend: site.baseurl }}?v={{ site.time | date: '%s' }}">
 </head>

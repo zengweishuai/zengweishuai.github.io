@@ -1,17 +1,17 @@
- <div class="user-details">
-  <h1>About Me</h1>
-  <div class="selfie">
-    <img alt="selfie" src="{{"/assets/img/selfie.jpg" | prepend: site.baseurl}}" />
-  </div>
-  <div class="selfie-right">
-    <p>I'm Weishuai Zeng, a final-year undergraduate majoring in Artificial Intelligence at EECS, Peking University. My research is centered on building a general-purpose humanoid robots for open-world environments, with particular emphasis on specific issues including Hierarchical Planning and Control, Perception and Recognition, Scene and Object Interaction and Cross-embodiment Learning. Recently, I have been intrigued by the idea of establishing a unified abstraction for diverse forms of humanoid control, with the long-term vision of achieving a "GPT moment" for humanoid robots.</p>
-    
-    <p>Currently, I am working with Dr. Jingbo Wang and Dr.Jiangmiao Pang at InternRobotics, Shanghai Artificial Intelligence Laboratory. Previously, I interned at the Beijing Academy of Artificial Intelligence (BAAI) where I had the opportunity to explore domains such as Large Foundation Models, Embodied Agents, Animation and Virtual Characters. These experiences serve as foundation to support my passion on humanoid robots, which I deeply appreciate.</p>
-
-    <p>I welcome discussions and collaborations on any of the topics mentioned above, as I firmly believe that collaboration brings real science.</p>
-
-    <p><span class="highlight-red">I am applying for a PhD position in 2026 Fall.</span> Please drop me an email if you are interested in anything about me.</p>
+<div class="container about">
+  <figure class="about__photo" data-inview>
+    <img src="{{ '/assets/img/selfie-sm.jpg' | prepend: site.baseurl }}" alt="Portrait of Weishuai Zeng" loading="lazy" width="600" height="750">
+  </figure>
+  <div class="about__text" data-inview>
+    <h2 class="section__title section__title--plain">About Me</h2>
+    <p>I'm Weishuai Zeng, a PhD student at MMLab, The Chinese University of Hong Kong (CUHK), advised by Prof. Dahua Lin. I received my bachelor's degree from Peking University, and previously worked as a research intern at Shanghai Artificial Intelligence Laboratory and the Beijing Academy of Artificial Intelligence (BAAI).</p>
+    <p>My research centers on building general embodied agents with physical intelligence. I'm interested in anything about humanoid robots, foundation models, and beyond.</p>
+    <div class="about__links">
+      <a href="{{ site.email }}"><i class="fa fa-envelope" aria-hidden="true"></i> Email</a>
+      <a href="{{ site.github_username }}"><i class="fa fa-github" aria-hidden="true"></i> GitHub</a>
+      <a href="{{ site.scholar }}"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M5.242 13.769L0 9.5 12 0l12 9.5-5.242 4.269C17.548 11.249 14.978 9.5 12 9.5c-2.977 0-5.548 1.748-6.758 4.269zM12 10a7 7 0 1 0 0 14 7 7 0 0 0 0-14z"/></svg> Scholar</a>
+      <a href="{{ site.twitter_username }}"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z"/></svg> X</a>
+      <a href="{{ site.rednote }}"><i class="fa fa-heart" aria-hidden="true"></i> RedNote</a>
+    </div>
   </div>
 </div>
-
-
