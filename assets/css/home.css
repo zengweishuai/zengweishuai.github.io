@@ -491,7 +491,8 @@ a { color: inherit; }
   .hero__down { bottom: 44px; }
 
   .about { grid-template-columns: 1fr; }
-  .about__photo { max-width: 220px; }
+  .about__photo { width: 100%; max-width: 220px; margin: 0 auto; }
+  .about__links { justify-content: center; }
 }
 
 /* --------------------------------------------------------------------------
